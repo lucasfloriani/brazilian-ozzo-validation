@@ -1,12 +1,16 @@
 package isbr
 
 import (
+	"regexp"
+
 	"github.com/go-ozzo/ozzo-validation"
 )
 
 var (
-	Phone = validation.NewStringRule(isBrPhone, "must be a valid phone")
-	CellPhone = validation.NewStringRule(isBrCellPhone, "must be a valid cellphone")
+	// Phone validate if a string is a brazilian phone format or not
+	Phone = validation.NewStringRule(isPhone, "must be a valid phone")
+	// CellPhone validate if a string is a brazilian cellphone format or not
+	CellPhone = validation.NewStringRule(isCellPhone, "must be a valid cellphone")
 )
 
 func isPhone(value string) bool {
